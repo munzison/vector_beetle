@@ -18,7 +18,23 @@ void gmain() {
 	osu.advSpeed = 10;
 	//メインループ
 	while (notQuit) {
+		struct VEC a,b;
+		if (isPress(KEY_D))b.x = 1;
+		if (isPress(KEY_A))b.x = -1;
+		if (isPress(KEY_W))b.y = -1;
+		if (isPress(KEY_S))b.y = 1;
+		if (b.x != 0 || b.y != 0) {
+			//オスの移動
+			b = normalize(&b);
+			osu.pos.x += b.x * osu.advSpeed;
+			osu.pos.y += b.y * osu.advSpeed;
+			//オスの回転
+			a = vecFromAngle(osu.angle);
+			osu.angSpeed = angleBetweenTwoVecs(&a, &b) / 4;
+			osu.angle += osu.angSpeed;
+		}
 		clear();
+		rectMode(CENTER);
 		image(osuImg, osu.pos.x, osu.pos.y, osu.angle);
 	}
 }

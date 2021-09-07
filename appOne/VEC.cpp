@@ -2,7 +2,7 @@
 #include"VEC.h"
 
 float magnitude(struct VEC* v) {
-	return sqrt(v->x * v->x + v->y * v->y);
+	return sqrt(v->x * v->x + v->y * v->y);//main‚É•Ô‚é
 }
 struct VEC normalize(struct VEC* v) {
 	float mag = magnitude(v);
