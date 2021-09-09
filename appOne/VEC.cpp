@@ -22,5 +22,5 @@ struct VEC vecFromAngle(float angle) {
 float angleBetweenTwoVecs(struct VEC* a, struct VEC* b) {
 	float dp = a->x * b->x + a->y * b->y;//“àÏ
 	float cp = a->x * b->y - a->y * b->x;//ŠOÏ
-	return atan2(dp, cp);//cp,dp‚ğ“n‚·
+	return atan2(cp, dp);//cp,dp‚ğ“n‚·
 }
